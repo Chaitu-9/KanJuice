@@ -1,3 +1,5 @@
+.DS_Store
+
 # Built application files
 *.apk
 *.ap_
@@ -28,4 +30,3 @@ proguard/
 
 *.iml
 .idea
-.DS_Store
