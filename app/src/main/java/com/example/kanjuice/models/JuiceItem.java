@@ -48,4 +48,29 @@ public class JuiceItem implements Parcelable {
         isSugarless = in.readByte() != 0;
         selectedQuantity = in.readInt();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        JuiceItem juiceItem = (JuiceItem) o;
+
+        if (selectedQuantity != juiceItem.selectedQuantity) return false;
+        if (isSugarless != juiceItem.isSugarless) return false;
+        if (imageResId != juiceItem.imageResId) return false;
+        if (kanResId != juiceItem.kanResId) return false;
+        return !(juiceName != null ? !juiceName.equals(juiceItem.juiceName) : juiceItem.juiceName != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = juiceName != null ? juiceName.hashCode() : 0;
+        result = 31 * result + selectedQuantity;
+        result = 31 * result + (isSugarless ? 1 : 0);
+        result = 31 * result + imageResId;
+        result = 31 * result + kanResId;
+        return result;
+    }
 }
